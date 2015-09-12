@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <% include templates/header.ejs %>
+    <% if(category!=-1){ %>
+      <h1>Now playing <%= videodata.categories[category].categoryName %></h1>
+    <% }else{ %>
+      <h1><%= title %></h1>
+    <% } %>
+      <p>Try to figure out MVC frameworks</p>
+
+    <ul>
+    <% videodata.categories.forEach(function(item) {%>
+        <li><a href="?cat=<%= item.categoryID %>"><%= item.categoryName %></a></li>
+    <% }); %>
+    </ul>
+  </body>
+</html>
